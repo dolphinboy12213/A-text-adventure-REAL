@@ -18,7 +18,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             int narratorInsanity = 0;
 
             // figure out character stuff
-
+            Console.WriteLine("\n\n");
             Console.WriteLine("Your Character's name: \n");
             string? name = Convert.ToString(Console.ReadLine()); // name
 
@@ -102,8 +102,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 else if (i >= 3)
                 {
                     Console.WriteLine("You wake up a bit later feeling a bit more refreshed");
+                    Console.ReadKey();
                 }
-            }   
+            }
+            else
+            {
+
+            } 
             
             Console.Clear();
             Console.WriteLine(" 1. Open your closet.  2. Investigate Your room.(D20) \n");
@@ -114,6 +119,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("\nYou open your closet and get dressed for the day ahead.");
             clothes = "Common Clothes";
             Console.WriteLine("\nNow wearing: " + clothes);
+            Console.ReadKey();
             }
             else if (decision2 == 2)
             {
@@ -130,6 +136,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("\nTake twelve damage");
                     currentHealth = currentHealth - 12;
                     Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
+                    Console.ReadKey();
 
                 }
                 else if (rollIntel == 20)
@@ -157,7 +164,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine(item);
                     }
 
-                }    // start formatting here
+                }    
                 else if (rollIntel >= 2 && rollIntel <= 10)
                 {
                     Console.WriteLine("\nYou find nothing of real interest.");
@@ -203,6 +210,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 else
                 {
                     Console.WriteLine("Fuck you.");
+                    Console.ReadKey();
                 }
 
             }
@@ -213,6 +221,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.ReadKey();
             Console.Clear();
             Console.WriteLine("1. Go to the living room.  2. Go to the Laundry Room. 3. Equip an item.\n");
+            string? decision3 = Console.ReadLine();
+            while (decision3 != "1" || )
+            
+            
+
 
         }
 
