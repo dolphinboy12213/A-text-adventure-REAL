@@ -1,0 +1,15 @@
+/workspaces/A-text-adventure-REAL/bin/Debug/net7.0/A-text-adventure-REAL
+/workspaces/A-text-adventure-REAL/bin/Debug/net7.0/A-text-adventure-REAL.deps.json
+/workspaces/A-text-adventure-REAL/bin/Debug/net7.0/A-text-adventure-REAL.runtimeconfig.json
+/workspaces/A-text-adventure-REAL/bin/Debug/net7.0/A-text-adventure-REAL.dll
+/workspaces/A-text-adventure-REAL/bin/Debug/net7.0/A-text-adventure-REAL.pdb
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.csproj.AssemblyReference.cache
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.AssemblyInfoInputs.cache
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.AssemblyInfo.cs
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.csproj.CoreCompileInputs.cache
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.dll
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/refint/A-text-adventure-REAL.dll
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.pdb
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.genruntimeconfig.cache
+/workspaces/A-text-adventure-REAL/obj/Debug/net7.0/ref/A-text-adventure-REAL.dll
