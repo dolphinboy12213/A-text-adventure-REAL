@@ -120,6 +120,23 @@ namespace MyApp // Note: actual namespace depends on the project name.
             clothes = "Common Clothes";
             Console.WriteLine("\nNow wearing: " + clothes);
             Console.ReadKey();
+            Console.Clear();
+
+            string? inside_decision2_1;
+            do
+            {
+                Console.WriteLine("1. Investigate Your room.(D20)  2. Go to the hallway");
+                inside_decision2_1 = Console.ReadLine();
+                if (inside_decision2_1 != "1" && inside_decision2_1 != "2")
+                {
+                    Console.WriteLine("INVALID");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+
+            }
+            while(inside_decision2_1 != "1" && inside_decision2_1 != "2");
+           
             }
             else if (decision2 == 2)
             {
@@ -143,22 +160,25 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 {
                     Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
                     Console.WriteLine("Pickup crowbar? (y/n)");
+                    
                     string? i = Console.ReadLine();
-                    if (i == "y")
+                    if (i == "y" || i == "Y")
                     {
                         Console.WriteLine("You have picked up: Rusty Crowbar.");
                         inventory[inventory_spaces] = "Rusty Crowbar";
                         inventory_spaces++;
                     }
                     Console.WriteLine("Pickup Banana Peel? (y/n)");
+                    
                     string? ii = Console.ReadLine();
-                    if (ii == "y")
+                    if (ii == "y" || ii == "Y")
                     {
                         Console.WriteLine("You have picked up: Banana Peel");
                         inventory[inventory_spaces] = "Banana Peel";
                         inventory_spaces++;
                     }
                     Console.WriteLine("\n\n Inventory:");
+                   
                     foreach (string item in inventory)
                     {
                         Console.WriteLine(item);
@@ -187,13 +207,27 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     }
 
                 }
+                
                 Console.ReadKey();
                 Console.Clear();
 
-                Console.WriteLine("1. Open your closet.  2. Go to the hallway.");
-                string? inside_decision2 = Console.ReadLine();
+                string? inside_decision2_2;
+                do
+                {
+                    Console.WriteLine("1. Open your closet.  2. Go to the hallway.");
+                    inside_decision2_2 = Console.ReadLine();
+                    if (inside_decision2_2 != "1" && inside_decision2_2 != "2")
+                    {
+                        Console.WriteLine("INVALID RESPONSE");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                    
+                }
+                while(inside_decision2_2 != "1" && inside_decision2_2 != "2");
+                
 
-                if (inside_decision2 == "1")
+                if (inside_decision2_2 == "1")
                 {
                     Console.WriteLine("You open your closet and get dressed for the day ahead.\n");
                     clothes = "Common Clothes";
@@ -202,16 +236,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.ReadKey();
 
                 }
-                else if (inside_decision2 == "2")
+                else if (inside_decision2_2 == "2")
                 {
                     Console.WriteLine("Press any key...");
                     Console.ReadKey();
                 }
-                else
-                {
-                    Console.WriteLine("Fuck you.");
-                    Console.ReadKey();
-                }
+                
 
             }
 
@@ -220,10 +250,25 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("As " + name + " walks out of their room, they hear a big crash, straight ahead, in the living room. \n");
             Console.ReadKey();
             Console.Clear();
-            Console.WriteLine("1. Go to the living room.  2. Go to the Laundry Room. 3. Equip an item.\n");
-            string? decision3 = Console.ReadLine();
-            while (decision3 != "1" || )
             
+            
+            string? decision3;
+            do
+            {
+                Console.WriteLine("1. Go to the living room.  2. Go to the Laundry Room.  3. Equip an item.\n");
+                decision3 = Console.ReadLine();
+
+                if (decision3 != "1" && decision3 != "2" && decision3 != "3")
+                {
+                Console.WriteLine("INVALID RESPONSE");
+                Console.ReadKey();
+                Console.Clear();
+                narratorInsanity++;
+                }
+            }
+            while (decision3 != "1" && decision3 != "2" && decision3 != "3");
+            
+            Console.WriteLine("WEEWEE");
             
 
 
