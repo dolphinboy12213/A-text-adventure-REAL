@@ -54,19 +54,27 @@ namespace MyApp // Note: actual namespace depends on the project name.
     // start the story
             Console.WriteLine("\n" + name + " wakes up to the same annoying alarm clock, as usual.\n");
             Console.WriteLine("It seems to be another dull morning today. Something feels wrong in your head ,but you push off your worries to the side. \n ");
+            string? decision1;
+            do
+            {
+                Console.WriteLine("\n  1. Get out of bed.    2. Go back to sleep.   \n");
+                decision1 = Console.ReadLine();
+                if (decision1 != "1" && decision1 != "2")
+                {
+                    Console.WriteLine("INVALID ANSWER");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
 
-            Console.WriteLine("\n  1. Get out of bed.    2. Go back to sleep.   \n");
+            }
+            while (decision1 != "1" && decision1 != "2");
 
-            int decision1 = Convert.ToInt32(Console.ReadLine());
-
-
-
-            if (decision1 == 1)
+            if (decision1 == "1")
             {
                 Console.WriteLine("\nYou get out of your bed and find that your room is way colder than it should be. Strange.\n");
                 Console.ReadKey();
             }
-            if (decision1 == 2)
+            if (decision1 == "2")
             {
                 int i = rnd.Next(1, 5);
 
@@ -112,6 +120,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             
             Console.Clear();
             Console.WriteLine(" 1. Open your closet.  2. Investigate Your room.(D20) \n");
+
+            // ADD ANOTHER DO WHILE TO DECISION 2
             int decision2 = Convert.ToInt32(Console.ReadLine());
             
             if (decision2 == 1)
@@ -153,14 +163,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("\nTake twelve damage");
                     currentHealth = currentHealth - 12;
                     Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
-                    Console.ReadKey();
+                    
 
                 }
                 else if (rollIntel == 20)
                 {
                     Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
+                   
                     Console.WriteLine("Pickup crowbar? (y/n)");
-                    
                     string? i = Console.ReadLine();
                     if (i == "y" || i == "Y")
                     {
@@ -168,8 +178,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         inventory[inventory_spaces] = "Rusty Crowbar";
                         inventory_spaces++;
                     }
-                    Console.WriteLine("Pickup Banana Peel? (y/n)");
                     
+                    Console.WriteLine("Pickup Banana Peel? (y/n)");
                     string? ii = Console.ReadLine();
                     if (ii == "y" || ii == "Y")
                     {
@@ -183,6 +193,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     {
                         Console.WriteLine(item);
                     }
+                    
 
                 }    
                 else if (rollIntel >= 2 && rollIntel <= 10)
@@ -222,7 +233,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.ReadKey();
                         Console.Clear();
                     }
-                    
+                     
                 }
                 while(inside_decision2_2 != "1" && inside_decision2_2 != "2");
                 

@@ -3,5 +3,5 @@ Got a couple of things to do.
 1. Format shit cause intellisense is actually dog ✅
 2. Figure out item equip
 3. Add evn more conditionals
-4. Cry cause there isn't any do while loops 😒 
+4. ADD A DO WHILE FOR DECISION 2
 5. Add option for nothing in your inventory.
