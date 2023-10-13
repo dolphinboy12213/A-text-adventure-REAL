@@ -117,7 +117,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
              
             Console.ReadKey();
             Console.Clear();
-            string? decision2;
+            string? decision2 = "0";
             
             if (decision1 != "3")
             {
@@ -231,9 +231,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                 }
             }
-
-           
             }
+
             else if (decision2 == "2")
             {
                 Console.WriteLine("\n Press any key to roll...");
@@ -407,5 +406,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             int Maxhealth = (int)Math.Round((strength * 1.5) + (dex * 1.2));
             return Maxhealth;
         }
+    
+    
     }
 }
