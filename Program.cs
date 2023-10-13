@@ -51,7 +51,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.Clear();
 
-    // start the story
+            // start the story
             Console.WriteLine("\n" + name + " wakes up to the same annoying alarm clock, as usual.\n");
             Console.WriteLine("It seems to be another dull morning today. Something feels wrong in your head, but you push off your worries to the side. \n ");
             string? decision1;
@@ -65,14 +65,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.ReadKey();
                     Console.Clear();
                 }
-
             }
             while (decision1 != "1" && decision1 != "2" && decision1 != "3");
 
             if (decision1 == "1")
             {
                 Console.WriteLine("\nYou get out of your bed and find that your room is way colder than it should be. Strange.\n");
-                
+
             }
             else if (decision1 == "2")
             {
@@ -114,11 +113,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("You wake up a bit later feeling a bit more refreshed");
                 }
             }
-             
+
             Console.ReadKey();
             Console.Clear();
             string? decision2 = "0";
-            
+
             if (decision1 != "3")
             {
                 do
@@ -132,105 +131,105 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.Clear();
                     }
                 }
-                while(decision2 != "1" && decision2 != "2");
+                while (decision2 != "1" && decision2 != "2");
             }
-            
-            
+
+
             if (decision2 == "1")
             {
                 Console.WriteLine("\nYou open your closet and get dressed for the day ahead.");
                 clothes = "Common Clothes";
                 Console.WriteLine("\nNow wearing: " + clothes);
-            Console.ReadKey();
-            Console.Clear();
+                Console.ReadKey();
+                Console.Clear();
 
-            string? inside_decision2_1;
-            do
-            {
-                Console.WriteLine("1. Investigate Your room.(D20)  2. Go to the hallway");
-                inside_decision2_1 = Console.ReadLine();
-                if (inside_decision2_1 != "1" && inside_decision2_1 != "2")
+                string? inside_decision2_1;
+                do
                 {
-                    Console.WriteLine("INVALID RESPONSE");
+                    Console.WriteLine("1. Investigate Your room.(D20)  2. Go to the hallway");
+                    inside_decision2_1 = Console.ReadLine();
+                    if (inside_decision2_1 != "1" && inside_decision2_1 != "2")
+                    {
+                        Console.WriteLine("INVALID RESPONSE");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                }
+                while (inside_decision2_1 != "1" && inside_decision2_1 != "2");
+
+                if (inside_decision2_1 == "1")
+                {
+                    // add stuff from (decision2 == "2") the stuff right down there ⬇️
+                    Console.WriteLine("\n Press any key to roll...");
                     Console.ReadKey();
-                    Console.Clear();
-                }
+                    Console.WriteLine("\n Rolling intelligence (d20)...");
+                    int rollIntel = rnd.Next(1, 20);
+                    Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
+                    Console.ReadKey();
 
-            }
-            while(inside_decision2_1 != "1" && inside_decision2_1 != "2");
-
-            if (inside_decision2_1 == "1")
-            {
-                // add stuff from (decision2 == "2") the stuff right down there ⬇️
-                Console.WriteLine("\n Press any key to roll...");
-                Console.ReadKey();
-                Console.WriteLine("\n Rolling intelligence (d20)...");
-                int rollIntel = rnd.Next(1, 20);
-                Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
-                Console.ReadKey();
-
-                if (rollIntel == 1)
-                {
-                    Console.WriteLine("\nAs you search the room, You accidentally slip on a perfectly placed banana peel.");
-                    Console.WriteLine("\nTake twelve damage");
-                    currentHealth = currentHealth - 12;
-                    Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
-                    
-
-                }
-                else if (rollIntel == 20)
-                {
-                    Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
-                   
-                    Console.WriteLine("Pickup crowbar? (y/n)");
-                    string? i = Console.ReadLine();
-                    if (i == "y" || i == "Y")
+                    if (rollIntel == 1)
                     {
-                        Console.WriteLine("You have picked up: Rusty Crowbar.");
-                        inventory[inventory_spaces] = "Rusty Crowbar";
-                        inventory_spaces++;
+                        Console.WriteLine("\nAs you search the room, You accidentally slip on a perfectly placed banana peel.");
+                        Console.WriteLine("\nTake twelve damage");
+                        currentHealth = currentHealth - 12;
+                        Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
+
+
                     }
-                    
-                    Console.WriteLine("Pickup Banana Peel? (y/n)");
-                    string? ii = Console.ReadLine();
-                    if (ii == "y" || ii == "Y")
+                    else if (rollIntel == 20)
                     {
-                        Console.WriteLine("You have picked up: Banana Peel");
-                        inventory[inventory_spaces] = "Banana Peel";
-                        inventory_spaces++;
-                    }
-                    Console.WriteLine("\n\n Inventory:");
-                   
-                    foreach (string item in inventory)
-                    {
-                        Console.WriteLine(item);
-                    }
-                    
+                        Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
 
-                }    
-                else if (rollIntel >= 2 && rollIntel <= 10)
-                {
-                    Console.WriteLine("\nYou find nothing of real interest.");
-                }
-                else if (rollIntel >= 10 && rollIntel <= 19)
-                {
-                    Console.WriteLine("\nYou find a really rusty crowbar under your bed.");
-                    Console.WriteLine("Pickup crowbar? (y/n)");
-                    string? i = Console.ReadLine();
-                    
-                    if (i == "y" || i == "Y")
-                    {
-                        Console.WriteLine("You have picked up: Rusty Crowbar. \n\nInventory: ");
-                        inventory[inventory_spaces] = "Rusty Crowbar";
-                        inventory_spaces++;
+                        Console.WriteLine("Pickup crowbar? (y/n)");
+                        string? i = Console.ReadLine();
+                        if (i == "y" || i == "Y")
+                        {
+                            Console.WriteLine("You have picked up: Rusty Crowbar.");
+                            inventory[inventory_spaces] = "Rusty Crowbar";
+                            inventory_spaces++;
+                        }
+
+                        Console.WriteLine("Pickup Banana Peel? (y/n)");
+                        string? ii = Console.ReadLine();
+                        if (ii == "y" || ii == "Y")
+                        {
+                            Console.WriteLine("You have picked up: Banana Peel");
+                            inventory[inventory_spaces] = "Banana Peel";
+                            inventory_spaces++;
+                        }
+                        Console.WriteLine("\n\n Inventory:");
+
                         foreach (string item in inventory)
                         {
                             Console.WriteLine(item);
                         }
-                    }
 
+
+                    }
+                    else if (rollIntel >= 2 && rollIntel <= 10)
+                    {
+                        Console.WriteLine("\nYou find nothing of real interest.");
+                    }
+                    else if (rollIntel >= 10 && rollIntel <= 19)
+                    {
+                        Console.WriteLine("\nYou find a really rusty crowbar under your bed.");
+                        Console.WriteLine("Pickup crowbar? (y/n)");
+                        string? i = Console.ReadLine();
+
+                        if (i == "y" || i == "Y")
+                        {
+                            Console.WriteLine("You have picked up: Rusty Crowbar. \n\nInventory: ");
+                            inventory[inventory_spaces] = "Rusty Crowbar";
+                            inventory_spaces++;
+                            foreach (string item in inventory)
+                            {
+                                Console.WriteLine(item);
+                            }
+                        }
+
+                    }
                 }
-            }
             }
 
             else if (decision2 == "2")
@@ -248,13 +247,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("\nTake twelve damage");
                     currentHealth = currentHealth - 12;
                     Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
-                    
+
 
                 }
                 else if (rollIntel == 20)
                 {
                     Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
-                   
+
                     Console.WriteLine("Pickup crowbar? (y/n)");
                     string? i = Console.ReadLine();
                     if (i == "y" || i == "Y")
@@ -263,7 +262,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         inventory[inventory_spaces] = "Rusty Crowbar";
                         inventory_spaces++;
                     }
-                    
+
                     Console.WriteLine("Pickup Banana Peel? (y/n)");
                     string? ii = Console.ReadLine();
                     if (ii == "y" || ii == "Y")
@@ -273,14 +272,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         inventory_spaces++;
                     }
                     Console.WriteLine("\n\n Inventory:");
-                   
+
                     foreach (string item in inventory)
                     {
                         Console.WriteLine(item);
                     }
-                    
 
-                }    
+
+                }
                 else if (rollIntel >= 2 && rollIntel <= 10)
                 {
                     Console.WriteLine("\nYou find nothing of real interest.");
@@ -290,7 +289,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("\nYou find a really rusty crowbar under your bed.");
                     Console.WriteLine("Pickup crowbar? (y/n)");
                     string? i = Console.ReadLine();
-                    
+
                     if (i == "y" || i == "Y")
                     {
                         Console.WriteLine("You have picked up: Rusty Crowbar. \n\nInventory: ");
@@ -303,7 +302,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     }
 
                 }
-                
+
                 Console.ReadKey();
                 Console.Clear();
 
@@ -318,10 +317,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.ReadKey();
                         Console.Clear();
                     }
-                     
+
                 }
-                while(inside_decision2_2 != "1" && inside_decision2_2 != "2");
-                
+                while (inside_decision2_2 != "1" && inside_decision2_2 != "2");
+
 
                 if (inside_decision2_2 == "1")
                 {
@@ -337,7 +336,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("Press any key...");
                     Console.ReadKey();
                 }
-                
+
 
             }
 
@@ -346,8 +345,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("As " + name + " walks out of their room, they hear a big crash, straight ahead, in the living room. \n");
             Console.ReadKey();
             Console.Clear();
-            
-            
+
+
             string? decision3;
             do
             {
@@ -356,16 +355,16 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
                 if (decision3 != "1" && decision3 != "2" && decision3 != "3")
                 {
-                Console.WriteLine("INVALID RESPONSE");
-                Console.ReadKey();
-                Console.Clear();
-                narratorInsanity++;
+                    Console.WriteLine("INVALID RESPONSE");
+                    Console.ReadKey();
+                    Console.Clear();
+                    narratorInsanity++;
                 }
             }
             while (decision3 != "1" && decision3 != "2" && decision3 != "3");
-            
+
             Console.WriteLine("WEEWEE");
-            
+
 
 
         }
@@ -373,40 +372,40 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static int calc_modifier(int ability_score)
         {
             int ability_mod = 0;
-            
+
             if (ability_score >= 3 && ability_score <= 5)
             {
                 ability_mod = 1;
             }
-            
+
             else if (ability_score >= 6 && ability_score <= 8)
             {
                 ability_mod = 2;
             }
-            
+
             else if (ability_score >= 9 && ability_score <= 13)
             {
                 ability_mod = 3;
             }
-            
+
             else if (ability_score >= 14 && ability_score <= 16)
             {
                 ability_mod = 4;
             }
-            
+
             else if (ability_score >= 17 && ability_score <= 18)
             {
                 ability_mod = 5;
             }
-            
-             return ability_mod;
+
+            return ability_mod;
         }
         static int calc_maxhealth(int strength, int dex)
         {
             int Maxhealth = (int)Math.Round((strength * 1.5) + (dex * 1.2));
             return Maxhealth;
         }
-    
-    
+
+
     }
 }
