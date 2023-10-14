@@ -8,6 +8,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
 {
     internal class Program
     {
+
+
+        
         static void Main(string[] args)
         {
             string[] inventory = new string[4];
@@ -16,6 +19,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.Title = "YOUR MOTHER";
             Console.ForegroundColor = ConsoleColor.Green;
             int narratorInsanity = 0;
+
+            title_image();
 
             // figure out character stuff
             Console.WriteLine("\n\n");
@@ -406,6 +411,24 @@ namespace MyApp // Note: actual namespace depends on the project name.
             return Maxhealth;
         }
 
+        static void title_image()
+        {
 
+            string[] title = {" █████╗      ██████╗  █████╗ ███╗   ███╗███████╗", "██╔══██╗    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝", "███████║    ██║  ███╗███████║██╔████╔██║█████╗ ", "██╔══██║    ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  ", "██║  ██║    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗", "╚═╝  ╚═╝     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ \n"};
+
+            
+            Console.WriteLine(title[0]);
+            Console.WriteLine(title[1]);Thread.Sleep(200);
+            Console.WriteLine(title[2]);Thread.Sleep(200);
+            Console.WriteLine(title[3]);Thread.Sleep(200);
+            Console.WriteLine(title[4]);Thread.Sleep(200);
+            Console.WriteLine(title[5]);
+            Console.WriteLine("Press Any Key To Start");
+            Console.ReadKey();
+            Console.Clear();
+        }
+    
+        
     }
+
 }
