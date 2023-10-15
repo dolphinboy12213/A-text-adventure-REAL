@@ -23,8 +23,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             title_image();
 
             // figure out character stuff
-            Console.WriteLine("\n\n");
-            Console.WriteLine("Your Character's name: \n");
+            Console.Write("Your Character's name: ");
             string? name = Convert.ToString(Console.ReadLine()); // name
 
             Console.WriteLine("\nTap to roll for " + name + "'s stats \n");
@@ -32,7 +31,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             int[] statroll = new int[3];
             for (int i = 0; i < 3; i++)
             {
-                statroll[i] = rnd.Next(1, 6) + rnd.Next(1, 6) + rnd.Next(1, 6);
+                statroll[i] = rnd.Next(1, 7) + rnd.Next(1, 7) + rnd.Next(1, 7);
             }
 
             int chaStrength = statroll[0]; // character strength
@@ -80,7 +79,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
             else if (decision1 == "2")
             {
-                int i = rnd.Next(1, 5);
+                int i = rnd.Next(1, 6);
 
                 if (i == 1 || i == 2)
                 {
@@ -94,7 +93,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     else
                     {
                         Console.WriteLine("Can you seriously not follow simple instructions?");
-                        int ii = rnd.Next(1, 4);
+                        int ii = rnd.Next(1, 5);
 
                         if (ii <= 3)
                         {
@@ -169,7 +168,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("\n Press any key to roll...");
                     Console.ReadKey();
                     Console.WriteLine("\n Rolling intelligence (d20)...");
-                    int rollIntel = rnd.Next(1, 20);
+                    int rollIntel = rnd.Next(1, 21);
                     Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
                     Console.ReadKey();
 
@@ -242,7 +241,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 Console.WriteLine("\n Press any key to roll...");
                 Console.ReadKey();
                 Console.WriteLine("\n Rolling intelligence (d20)...");
-                int rollIntel = rnd.Next(1, 20);
+                int rollIntel = rnd.Next(1, 21);
                 Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
                 Console.ReadKey();
 
@@ -368,8 +367,20 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
             while (decision3 != "1" && decision3 != "2" && decision3 != "3");
 
-            Console.WriteLine("WEEWEE");
+            if (decision3 == "1")
+            {
 
+            }
+            else if (decision3 == "2")
+            {
+
+            }
+            else if (decision3 == "3")
+            {
+                Console.WriteLine("What would you like to equip?");
+                
+
+            }
 
 
         }
