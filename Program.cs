@@ -58,185 +58,23 @@ namespace MyApp // Note: actual namespace depends on the project name.
             // start the story
             Console.WriteLine("\n" + name + " wakes up to the same annoying alarm clock, as usual.\n");
             Console.WriteLine("It seems to be another dull morning today. Something feels wrong in your head, but you push off your worries to the side. \n ");
-            string? decision1;
-            do
+            
+            string? decision1 = decisionMethod1();
+            bool death1 = decisionConditional1(decision1); 
+            if (death1 == true)
             {
-                Console.WriteLine("\n  1. Get out of bed.    2. Go back to sleep.    3. Go outside to the hallway.\n");
-                decision1 = Console.ReadLine();
-                if (decision1 != "1" && decision1 != "2" && decision1 != "3")
-                {
-                    Console.WriteLine("INVALID ANSWER");
-                    Console.ReadKey();
-                    Console.Clear();
-                }
-            }
-            while (decision1 != "1" && decision1 != "2" && decision1 != "3");
-
-            if (decision1 == "1")
-            {
-                Console.WriteLine("\nYou get out of your bed and find that your room is way colder than it should be. Strange.\n");
-
-            }
-            else if (decision1 == "2")
-            {
-                int i = rnd.Next(1, 6);
-
-                if (i == 1 || i == 2)
-                {
-                    Console.WriteLine("\nYou pass out and suffocate on your pillow.\n\n Press Y to end the game \n");
-                    string? s = Console.ReadLine();
-
-                    if (s == "y" || s == "Y")
-                    {
-                        return;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Can you seriously not follow simple instructions?");
-                        int ii = rnd.Next(1, 5);
-
-                        if (ii <= 3)
-                        {
-                            Console.ReadKey();
-                            return;
-                        }
-                        else if (ii == 4)
-                        {
-                            Console.ReadKey();
-                            Console.WriteLine("Fine, I'll give you one more chance. but don't pull more shit on me.\n");
-                            Console.WriteLine("YOU'VE BEEN WARNED");
-                            narratorInsanity++;
-                            Console.ReadKey();
-                            Console.WriteLine("You wake up a bit later feeling even more refrefeshed");
-                        }
-
-                    }
-                }
-                else if (i >= 3)
-                {
-                    Console.WriteLine("You wake up a bit later feeling a bit more refreshed");
-                }
+                return;
             }
 
             Console.ReadKey();
             Console.Clear();
-            string? decision2 = "0";
+            
+            string? decision2 = decisionMethod2(decision1);
+            decisionConditional2();
 
-            if (decision1 != "3")
-            {
-                do
-                {
-                    Console.WriteLine(" 1. Open your closet.  2. Investigate Your room.(D20) \n");
-                    decision2 = Console.ReadLine();
-                    if (decision2 != "1" && decision2 != "2")
-                    {
-                        Console.WriteLine("INVALID RESPONSE");
-                        Console.ReadKey();
-                        Console.Clear();
-                    }
-                }
-                while (decision2 != "1" && decision2 != "2");
-            }
+            
 
-
-            if (decision2 == "1")
-            {
-                Console.WriteLine("\nYou open your closet and get dressed for the day ahead.");
-                clothes = "Common Clothes";
-                Console.WriteLine("\nNow wearing: " + clothes);
-                Console.ReadKey();
-                Console.Clear();
-
-                string? inside_decision2_1;
-                do
-                {
-                    Console.WriteLine("1. Investigate Your room.(D20)  2. Go to the hallway");
-                    inside_decision2_1 = Console.ReadLine();
-                    if (inside_decision2_1 != "1" && inside_decision2_1 != "2")
-                    {
-                        Console.WriteLine("INVALID RESPONSE");
-                        Console.ReadKey();
-                        Console.Clear();
-                    }
-
-                }
-                while (inside_decision2_1 != "1" && inside_decision2_1 != "2");
-
-                if (inside_decision2_1 == "1")
-                {
-                    // add stuff from (decision2 == "2") the stuff right down there ⬇️
-                    Console.WriteLine("\n Press any key to roll...");
-                    Console.ReadKey();
-                    Console.WriteLine("\n Rolling intelligence (d20)...");
-                    int rollIntel = rnd.Next(1, 21);
-                    Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
-                    Console.ReadKey();
-
-                    if (rollIntel == 1)
-                    {
-                        Console.WriteLine("\nAs you search the room, You accidentally slip on a perfectly placed banana peel.");
-                        Console.WriteLine("\nTake twelve damage");
-                        currentHealth = currentHealth - 12;
-                        Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
-
-
-                    }
-                    else if (rollIntel == 20)
-                    {
-                        Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
-
-                        Console.WriteLine("Pickup crowbar? (y/n)");
-                        string? i = Console.ReadLine();
-                        if (i == "y" || i == "Y")
-                        {
-                            Console.WriteLine("You have picked up: Rusty Crowbar.");
-                            inventory[inventory_spaces] = "Rusty Crowbar";
-                            inventory_spaces++;
-                        }
-
-                        Console.WriteLine("Pickup Banana Peel? (y/n)");
-                        string? ii = Console.ReadLine();
-                        if (ii == "y" || ii == "Y")
-                        {
-                            Console.WriteLine("You have picked up: Banana Peel");
-                            inventory[inventory_spaces] = "Banana Peel";
-                            inventory_spaces++;
-                        }
-                        Console.WriteLine("\n\n Inventory:");
-
-                        foreach (string item in inventory)
-                        {
-                            Console.WriteLine(item);
-                        }
-
-
-                    }
-                    else if (rollIntel >= 2 && rollIntel <= 10)
-                    {
-                        Console.WriteLine("\nYou find nothing of real interest.");
-                    }
-                    else if (rollIntel >= 10 && rollIntel <= 19)
-                    {
-                        Console.WriteLine("\nYou find a really rusty crowbar under your bed.");
-                        Console.WriteLine("Pickup crowbar? (y/n)");
-                        string? i = Console.ReadLine();
-
-                        if (i == "y" || i == "Y")
-                        {
-                            Console.WriteLine("You have picked up: Rusty Crowbar. \n\nInventory: ");
-                            inventory[inventory_spaces] = "Rusty Crowbar";
-                            inventory_spaces++;
-                            foreach (string item in inventory)
-                            {
-                                Console.WriteLine(item);
-                            }
-                        }
-
-                    }
-                }
-            }
-
-            else if (decision2 == "2")
+            if (decision2 == "2")
             {
                 Console.WriteLine("\n Press any key to roll...");
                 Console.ReadKey();
@@ -428,6 +266,203 @@ namespace MyApp // Note: actual namespace depends on the project name.
             return Maxhealth;
         }
 
+        static string decisionMethod1()
+        {
+            string? decision1;
+            do
+            {
+                
+                Console.WriteLine("\n  1. Get out of bed.    2. Go back to sleep.    3. Go outside to the hallway.\n");
+                decision1 = Console.ReadLine();
+                if (decision1 != "1" && decision1 != "2" && decision1 != "3")
+                {
+                    Console.WriteLine("INVALID ANSWER");
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+            }
+            while (decision1 != "1" && decision1 != "2" && decision1 != "3");
+            return decision1;
+        }
+
+    
+        static bool decisionConditional1(string decision1)
+        {
+            Random rnd = new Random();
+            bool death = false;
+            if (decision1 == "1")
+            {
+                Console.WriteLine("\nYou get out of your bed and find that your room is way colder than it should be. Strange.\n");
+
+            }
+            else if (decision1 == "2")
+            {
+                int i = rnd.Next(1, 6);
+
+                if (i == 1 || i == 2)
+                {
+                    Console.WriteLine("\nYou pass out and suffocate on your pillow.\n\n Press Y to end the game \n");
+                    string? s = Console.ReadLine();
+
+                    if (s == "y" || s == "Y")
+                    {
+                        death = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Can you seriously not follow simple instructions?");
+                        int ii = rnd.Next(1, 5);
+
+                        if (ii <= 3)
+                        {
+                            Console.ReadKey();
+                            
+                        }
+                        else if (ii == 4)
+                        {
+                            Console.ReadKey();
+                            Console.WriteLine("Fine, I'll give you one more chance. but don't pull more shit on me.\n");
+                            Console.WriteLine("YOU'VE BEEN WARNED");
+                            Console.ReadKey();
+                            Console.WriteLine("You wake up a bit later feeling even more refrefeshed");
+                        }
+
+                    }
+                }
+                else if (i >= 3)
+                {
+                    Console.WriteLine("You wake up a bit later feeling a bit more refreshed");
+                }
+            }
+            return death;
+        }
+
+        static string decisionMethod2(string decision1)
+        {   
+            string? decision2;
+            string temp = "WEE";
+            if (decision1 != "3")
+            {
+                do
+                {
+                    Console.WriteLine(" 1. Open your closet.  2. Investigate Your room.(D20) \n");
+                    decision2 = Console.ReadLine();
+                    if (decision2 != "1" && decision2 != "2")
+                    {
+                        Console.WriteLine("INVALID RESPONSE");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                }
+                while (decision2 != "1" && decision2 != "2");
+                return decision2;
+            }
+            return temp; 
+            
+        }
+
+        static Tuple<string, int, int, string[]> decisionConditional2(string decision2, string clothes, int intelbonus, int currentHealth, int Maxhealth, int inventory_spaces, string[] inventory)
+        {   
+            Random rnd = new Random();
+            if (decision2 == "1")
+            {
+                Console.WriteLine("\nYou open your closet and get dressed for the day ahead.");
+                clothes = "Common Clothes";
+                Console.WriteLine("\nNow wearing: " + clothes);
+                Console.ReadKey();
+                Console.Clear();
+
+                string? inside_decision2_1;
+                do
+                {
+                    Console.WriteLine("1. Investigate Your room.(D20)  2. Go to the hallway");
+                    inside_decision2_1 = Console.ReadLine();
+                    if (inside_decision2_1 != "1" && inside_decision2_1 != "2")
+                    {
+                        Console.WriteLine("INVALID RESPONSE");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+
+                }
+                while (inside_decision2_1 != "1" && inside_decision2_1 != "2");
+
+                if (inside_decision2_1 == "1")
+                {
+                    // add stuff from (decision2 == "2") the stuff right down there ⬇️
+                    Console.WriteLine("\n Press any key to roll...");
+                    Console.ReadKey();
+                    Console.WriteLine("\n Rolling intelligence (d20)...");
+                    int rollIntel = rnd.Next(1, 21);
+                    Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
+                    Console.ReadKey();
+
+                    if (rollIntel == 1)
+                    {
+                        Console.WriteLine("\nAs you search the room, You accidentally slip on a perfectly placed banana peel.");
+                        Console.WriteLine("\nTake twelve damage");
+                        currentHealth = currentHealth - 12;
+                        Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
+
+
+                    }
+                    else if (rollIntel == 20)
+                    {
+                        Console.WriteLine("\nAs you search the room, you find a really rusty crowbar under your bed and a very suspicisous banana peel.");
+
+                        Console.WriteLine("Pickup crowbar? (y/n)");
+                        string? i = Console.ReadLine();
+                        if (i == "y" || i == "Y")
+                        {
+                            Console.WriteLine("You have picked up: Rusty Crowbar.");
+                            inventory[inventory_spaces] = "Rusty Crowbar";
+                            inventory_spaces++;
+                        }
+
+                        Console.WriteLine("Pickup Banana Peel? (y/n)");
+                        string? ii = Console.ReadLine();
+                        if (ii == "y" || ii == "Y")
+                        {
+                            Console.WriteLine("You have picked up: Banana Peel");
+                            inventory[inventory_spaces] = "Banana Peel";
+                            inventory_spaces++;
+                        }
+                        Console.WriteLine("\n\n Inventory:");
+
+                        foreach (string item in inventory)
+                        {
+                            Console.WriteLine(item);
+                        }
+
+
+                    }
+                    else if (rollIntel >= 2 && rollIntel <= 10)
+                    {
+                        Console.WriteLine("\nYou find nothing of real interest.");
+                    }
+                    else if (rollIntel >= 10 && rollIntel <= 19)
+                    {
+                        Console.WriteLine("\nYou find a really rusty crowbar under your bed.");
+                        Console.WriteLine("Pickup crowbar? (y/n)");
+                        string? i = Console.ReadLine();
+
+                        if (i == "y" || i == "Y")
+                        {
+                            Console.WriteLine("You have picked up: Rusty Crowbar. \n\nInventory: ");
+                            inventory[inventory_spaces] = "Rusty Crowbar";
+                            inventory_spaces++;
+                            foreach (string item in inventory)
+                            {
+                                Console.WriteLine(item);
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            return Tuple.Create(clothes, currentHealth, inventory_spaces, inventory[]);
+        }
         static void title_image()
         {
 
