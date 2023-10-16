@@ -377,7 +377,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
             else if (decision3 == "3")
             {
-                Console.WriteLine("What would you like to equip?");
+                if (inventory_spaces == 0)
+                {
+                    Console.WriteLine("You don't have anything in your inventory.");
+                    Console.ReadKey();
+                    Console.Clear();
+
+                }
                 
 
             }
