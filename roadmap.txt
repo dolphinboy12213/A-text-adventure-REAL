@@ -1,11 +1,11 @@
 Got a couple of things to do.
 
 1. Format shit cause intellisense is actually dog ✅
-2. Figure out item equip (kinda workin on it)
+2. Figure out item equip (kinda workin on it) ❌ (not actually doing this anymore other than combat)
 4. ADD A DO WHILE FOR DECISION 2 ✅
 5. Add option for nothing in your inventory when fighting.
-6. Copy all the suff from (decision2 == 2) to inside (decision2_1 == "1") ✅
+6. Copy all the stuff from (decision2 == 2) to inside (decision2_1 == "1") ✅
 7. Figure out why input ("3") for decision1 makes you press 2-3 keys instead of 1.
 8. Turn shit into methods i'm kinda hating it now. Finished to decisionMethod2, still partially done with decisionConditional2, 
-   just copypasta and finish the array issues. (tuples!!!) NOTE: IF ANYTHING FUNKY GOES ON WITH THE INVENTORY ITS CAUSE OF "decisionConditional2."
+   just copypasta and finish the array issues. ✅ (tuples!!!) NOTE: IF ANYTHING FUNKY GOES ON WITH THE INVENTORY ITS CAUSE OF "decisionConditional2."
 
