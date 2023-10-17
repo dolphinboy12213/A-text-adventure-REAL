@@ -13,7 +13,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         
         static void Main(string[] args)
         {
-            string[] inventory = new string[4];
+            string[] inventory = new string[5] {" ", " ", " ", " ", " "};
             int inventory_spaces = 0;
             Random rnd = new Random();
             Console.Title = "YOUR MOTHER";
@@ -70,9 +70,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.Clear();
             
             string? decision2 = decisionMethod2(decision1);
-            decisionConditional2();
-
-            
+            decisionConditional2(decision2, clothes, intelbonus, currentHealth, Maxhealth, inventory_spaces, inventory);
 
             if (decision2 == "2")
             {
@@ -204,7 +202,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 }
             }
             while (decision3 != "1" && decision3 != "2" && decision3 != "3");
-
+            Console.Clear();
             if (decision3 == "1")
             {
 
@@ -220,7 +218,16 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("You don't have anything in your inventory.");
                     Console.ReadKey();
                     Console.Clear();
-
+                }
+                else if (inventory_spaces > 0)
+                {
+                    Console.WriteLine("What would you like to equip? \n");
+                    Console.WriteLine("Inventory:\n");
+                    foreach (string item in inventory)
+                    {
+                        Console.WriteLine(item);
+                    }
+                    
                 }
                 
 
@@ -340,7 +347,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static string decisionMethod2(string decision1)
         {   
             string? decision2;
-            string temp = "WEE";
+            string temp = " ";
             if (decision1 != "3")
             {
                 do
@@ -396,6 +403,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     int rollIntel = rnd.Next(1, 21);
                     Console.WriteLine("\n You rolled a: " + (rollIntel + intelbonus) + "(" + rollIntel + " + " + intelbonus + ")");
                     Console.ReadKey();
+                    Console.Clear();
 
                     if (rollIntel == 1)
                     {
@@ -461,7 +469,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 }
             }
 
-            return Tuple.Create(clothes, currentHealth, inventory_spaces, inventory[]);
+            return Tuple.Create(clothes, currentHealth, inventory_spaces, inventory);
         }
         static void title_image()
         {
