@@ -9,8 +9,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
     internal class Program
     {
 
-
-
         static void Main(string[] args)
         {
             string[] inventory = new string[5] { " ", " ", " ", " ", " " };
@@ -84,7 +82,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.Clear();
 
             decisionConditional3(decision3);
-
+            }
             static void title_image()
             {
 
@@ -137,7 +135,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 int Maxhealth = (int)Math.Round((strength * 1.5) + (dex * 1.2));
                 return Maxhealth;
             }
-
             static string decisionMethod1()
             {
                 string? decision1;
@@ -156,8 +153,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 while (decision1 != "1" && decision1 != "2" && decision1 != "3");
                 return decision1;
             }
-
-
             static bool decisionConditional1(string decision1)
             {
                 Random rnd = new Random();
@@ -208,7 +203,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 }
                 return death;
             }
-
             static string decisionMethod2(string decision1)
             {
                 string? decision2;
@@ -232,7 +226,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 return temp;
 
             }
-
             static Tuple<string, int, int, string[]> decisionConditional2(string decision2, string clothes, int intelbonus, int currentHealth, int Maxhealth, int inventory_spaces, string[] inventory)
             {
                 Random rnd = new Random();
@@ -442,7 +435,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 }
                 return Tuple.Create(clothes, currentHealth, inventory_spaces, inventory);
             }
-
             static string decisionMethod3()
             {
                 string? decision3;
@@ -461,7 +453,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 while (decision3 != "1" && decision3 != "2");
                 return decision3;
             }
-
             static void decisionConditional3(string decision3)
             {
                 if (decision3 == "1")
