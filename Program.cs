@@ -81,7 +81,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.Clear();
 
-            decisionConditional3(decision3, clothes);
+            decisionConditional3(decision3, clothes, dexbonus);
         }
         static void title_image()
         {
@@ -453,7 +453,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             while (decision3 != "1" && decision3 != "2");
             return decision3;
         }
-        static void decisionConditional3(string decision3, string clothes)
+        static void decisionConditional3(string decision3, string clothes, int dexbonus)
         {
             if (decision3 == "1")
             {
@@ -469,9 +469,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.Clear();
                     }
                 }
-                while(inside_decision3_1 != "1" && inside_decision3_1 != "2" && inside_decision3_1 != "3");
-                decisionConditional3path1(decision3, clothes);
-                
+                while (inside_decision3_1 != "1" && inside_decision3_1 != "2" && inside_decision3_1 != "3");
+                decisionConditional3path1(decision3, clothes, dexbonus);
+
             }
             else if (decision3 == "2")
             {
@@ -481,8 +481,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 
         }
-        static void decisionConditional3path1(string decision3, string clothes)
-        {
+        static string decisionConditional3path1(string decision3, string clothes, int dexbonus)
+        {   
+            Random rnd = new Random();
             if (decision3 == "1")
             {
                 string? inside_decision3_1_walk;
@@ -492,7 +493,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("Now your confused. You look down at your own legs and realize that your naked!");
                     Console.WriteLine("Get dressed now? (y/n)");
                     string? i;
-                    do 
+
+                    do
                     {
                         i = Console.ReadLine();
                         if (i != "y" && i != "n")
@@ -502,30 +504,74 @@ namespace MyApp // Note: actual namespace depends on the project name.
                             Console.Clear();
                         }
                     }
-                    while(i != "y" && i != "n");
+                    while (i != "y" && i != "n");
 
-                }
-                Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. \n");
-                Console.WriteLine("1. Talk to him. 2. Fight him. \n");
-                do 
-                {
-                    inside_decision3_1_walk = Console.ReadLine();
-                    if (inside_decision3_1_walk != "1" && inside_decision3_1_walk != "2")
+                    if (i == "y")
                     {
-                        Console.WriteLine("INVALID RESPONSE");
+                        Console.WriteLine("You walk back to your closet and get dressed.");
+                        clothes = "Common Clothes";
+                        Console.ReadKey();
+                        return clothes;
+                    }
+                    else if (i == "n")
+                    {
+                        Console.WriteLine("You choose to flex your thighs and stay nude, as you are him.");
+                        Console.ReadKey();
+                    }
+                    Console.Clear();
+                }
+
+                else
+                {
+                    Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. \n");
+                    Console.WriteLine("1. Talk to him. 2. Fight him. \n");
+                    do
+                    {
+                        inside_decision3_1_walk = Console.ReadLine();
+                        if (inside_decision3_1_walk != "1" && inside_decision3_1_walk != "2")
+                        {
+                            Console.WriteLine("INVALID RESPONSE");
+                            Console.ReadKey();
+                            Console.Clear();
+                        }
+                    }
+                    while (inside_decision3_1_walk != "1" && inside_decision3_1_walk != "2");
+                    Console.Clear();
+                    if (inside_decision3_1_walk == "1")
+                    {
+                        string? inside_decision3_1_walk_dialogue;
+                        do
+                        {
+                            Console.WriteLine("1. 'Who are you?' 2. 'Get out now!' 3. 'Freeze! THE POLICE ARE ON THE WAY!'");
+                            inside_decision3_1_walk_dialogue = Console.ReadLine();
+                            if (inside_decision3_1_walk_dialogue != "1" && inside_decision3_1_walk_dialogue != "2" && inside_decision3_1_walk_dialogue != "3")
+                            {
+                                Console.WriteLine("INVALID RESPONSE");
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                        }
+                        while(inside_decision3_1_walk_dialogue != "1" && inside_decision3_1_walk_dialogue != "2" && inside_decision3_1_walk_dialogue != "3");
+                        Console.Clear();
+
+                        Console.WriteLine("He looks you dead in the eye for a couple seconds, and then pulls a knife out of his bag and launches himself at you.\n");
+                        Console.WriteLine("Press any key to dodge (dex)\n");
+                        Console.ReadKey();
+                        int rollDex = rnd.Next(1, 21);
+                        int rollDexandBonus = rollDex + dexbonus;
+                        Console.WriteLine("You rolled a total of: " + rollDexandBonus + " (" + rollDex + " + " + dexbonus + ")");
                         Console.ReadKey();
                         Console.Clear();
+                        if (rollDex == 20)
+                        {
+
+                        }
                     }
                 }
-                while(inside_decision3_1_walk != "1" && inside_decision3_1_walk != "2");
-                Console.Clear();
-                if (inside_decision3_1_walk == "1")
-                {
-                    Console.WriteLine("1. 'Who are you?' 2. 'Get out now!' 3. 'Freeze! THE POLICE ARE ON THE WAY!'");
-                    
-                }
+                
             }
-        }
+            return decision3;
+        }   
     }
 
 }
