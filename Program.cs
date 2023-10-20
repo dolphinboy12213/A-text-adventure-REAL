@@ -569,6 +569,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                             banditHealth = banditHealth - 5;
                             Console.ReadKey();
                             Console.Clear();
+                            Console.WriteLine("You here the muffled screams of the stuck bandit.")
+                            Console.
                         }
                     }
                 }
