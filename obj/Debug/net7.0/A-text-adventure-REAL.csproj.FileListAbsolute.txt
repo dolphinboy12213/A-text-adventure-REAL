@@ -13,3 +13,17 @@
 /workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.pdb
 /workspaces/A-text-adventure-REAL/obj/Debug/net7.0/A-text-adventure-REAL.genruntimeconfig.cache
 /workspaces/A-text-adventure-REAL/obj/Debug/net7.0/ref/A-text-adventure-REAL.dll
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\bin\Debug\net7.0\A-text-adventure-REAL.exe
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\bin\Debug\net7.0\A-text-adventure-REAL.deps.json
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\bin\Debug\net7.0\A-text-adventure-REAL.runtimeconfig.json
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\bin\Debug\net7.0\A-text-adventure-REAL.dll
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\bin\Debug\net7.0\A-text-adventure-REAL.pdb
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.AssemblyInfoInputs.cache
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.AssemblyInfo.cs
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.csproj.CoreCompileInputs.cache
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.dll
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\refint\A-text-adventure-REAL.dll
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.pdb
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\A-text-adventure-REAL.genruntimeconfig.cache
+C:\Users\kesha\Documents\GitHub\A-text-adventure-REAL\obj\Debug\net7.0\ref\A-text-adventure-REAL.dll

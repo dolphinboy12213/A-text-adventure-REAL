@@ -20,10 +20,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
             title_image();
 
             // figure out character stuff
-            Console.Write("Your Character's name: ");
+            
             string? name;
+            string DefaultName = ""; 
             do
             {
+                Console.Write("Your Character's name: ");
                 name = Console.ReadLine();
                 if (name == null)
                 {
@@ -33,6 +35,28 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 } // name
             }
             while(name == null);
+            string? gender;
+            do
+            {
+                Console.Write(name + "'s gender? (m/f)");
+                gender = Console.ReadLine();
+                if (name == null && name != "m" && name != "f")
+                {
+                    Console.WriteLine("No");
+                    Console.ReadKey();
+                    Console.Clear();
+                } 
+            }
+            while(gender == null && name != "m" && name != "f");
+
+            if (gender == "m")
+            {
+                DefaultName = "Charles";
+            }
+            else if (gender == "f")
+            {
+                DefaultName = "Jessica";
+            }
 
             Console.WriteLine("\nTap to roll for " + name + "'s stats \n");
             Console.ReadKey();
@@ -92,7 +116,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.Clear();
 
-            decisionConditional3(decision3, clothes, dexbonus, name);
+            decisionConditional3(decision3, clothes, dexbonus, name ?? clothes);
         }
         static void title_image()
         {
