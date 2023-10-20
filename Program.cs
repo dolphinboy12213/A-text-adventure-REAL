@@ -487,6 +487,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             if (decision3 == "1")
             {
                 string? inside_decision3_1_walk;
+                int banditHealth = 13;
                 if (clothes == "null")
                 {
                     Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. As he sees you, he looks at your legs and faints.\n");
@@ -562,9 +563,12 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine("You rolled a total of: " + rollDexandBonus + " (" + rollDex + " + " + dexbonus + ")");
                         Console.ReadKey();
                         Console.Clear();
-                        if (rollDex == 20)
+                        if (rollDex == 20 && rollDexandBonus >= 20)
                         {
-
+                            Console.WriteLine("You completely dodge the bandit, as he ends up shoving his head into the drywall");
+                            banditHealth = banditHealth - 5;
+                            Console.ReadKey();
+                            Console.Clear();
                         }
                     }
                 }
