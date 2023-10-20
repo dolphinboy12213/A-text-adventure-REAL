@@ -21,7 +21,18 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             // figure out character stuff
             Console.Write("Your Character's name: ");
-            string? name = Convert.ToString(Console.ReadLine()); // name
+            string? name;
+            do
+            {
+                name = Console.ReadLine();
+                if (name == null)
+                {
+                    Console.WriteLine("No");
+                    Console.ReadKey();
+                    Console.Clear();
+                } // name
+            }
+            while(name == null);
 
             Console.WriteLine("\nTap to roll for " + name + "'s stats \n");
             Console.ReadKey();
@@ -81,7 +92,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.Clear();
 
-            decisionConditional3(decision3, clothes, dexbonus);
+            decisionConditional3(decision3, clothes, dexbonus, name);
         }
         static void title_image()
         {
@@ -453,7 +464,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             while (decision3 != "1" && decision3 != "2");
             return decision3;
         }
-        static void decisionConditional3(string decision3, string clothes, int dexbonus)
+        static void decisionConditional3(string decision3, string clothes, int dexbonus, string name)
         {
             if (decision3 == "1")
             {
@@ -470,7 +481,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     }
                 }
                 while (inside_decision3_1 != "1" && inside_decision3_1 != "2" && inside_decision3_1 != "3");
-                decisionConditional3path1(decision3, clothes, dexbonus);
+                decisionConditional3path1(decision3, clothes, dexbonus, name);
 
             }
             else if (decision3 == "2")
@@ -481,7 +492,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 
         }
-        static string decisionConditional3path1(string decision3, string clothes, int dexbonus)
+        static string decisionConditional3path1(string decision3, string clothes, int dexbonus, string name)
         {   
             Random rnd = new Random();
             if (decision3 == "1")
@@ -569,8 +580,25 @@ namespace MyApp // Note: actual namespace depends on the project name.
                             banditHealth = banditHealth - 5;
                             Console.ReadKey();
                             Console.Clear();
-                            Console.WriteLine("You here the muffled screams of the stuck bandit.")
-                            Console.
+                            Console.WriteLine("You here the muffled screams of the stuck bandit.\n");
+                            Console.WriteLine("1. Call the police  2. Attack the stuck bandit.");
+                            string? s;
+                            do 
+                            {
+                                s = Console.ReadLine();
+                                if (s != "1" && s != "2")
+                                {
+                                    Console.WriteLine("INVALID RESPONSE");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                }
+                                Console.Clear();
+                            }
+                            while(s != "1" && s != "2");
+                            if (s == "1")
+                            {
+                                Console.WriteLine();
+                            }
                         }
                     }
                 }
