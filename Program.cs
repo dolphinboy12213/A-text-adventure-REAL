@@ -21,8 +21,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             // figure out character stuff
             
-            string? name;
-            string DefaultName = ""; 
+            string? name; 
             do
             {
                 Console.Write("Your Character's name: ");
@@ -35,28 +34,21 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 } // name
             }
             while(name == null);
+            
             string? gender;
             do
             {
                 Console.Write(name + "'s gender? (m/f)");
                 gender = Console.ReadLine();
-                if (name == null && name != "m" && name != "f")
+                if (gender != "m" && gender != "f")
                 {
                     Console.WriteLine("No");
                     Console.ReadKey();
                     Console.Clear();
                 } 
             }
-            while(gender == null && name != "m" && name != "f");
+            while(gender != "m" && gender != "f");
 
-            if (gender == "m")
-            {
-                DefaultName = "Charles";
-            }
-            else if (gender == "f")
-            {
-                DefaultName = "Jessica";
-            }
 
             Console.WriteLine("\nTap to roll for " + name + "'s stats \n");
             Console.ReadKey();
@@ -621,8 +613,30 @@ namespace MyApp // Note: actual namespace depends on the project name.
                             while(s != "1" && s != "2");
                             if (s == "1")
                             {
-                                Console.WriteLine();
+                                Console.WriteLine(name + "grabs their cell phone and tries to call 911");
+                                Console.ReadKey();
+                                Console.Clear();
+                                policecall(name, s);
                             }
+                        }
+                        else if (rollDexandBonus < 20 && rollDexandBonus <= 13)
+                        {
+                            Console.WriteLine("You successfully dodge the bandit, as he goes flying to the ground.\n");
+                            Console.WriteLine("Would you like to advantage attack the poor lad? (y/n)");
+                            string? s;
+                            do
+                            {
+                                s = Console.ReadLine();
+                                if (s != "y" && s != "n")
+                                {
+                                    Console.WriteLine("INVALID REPONSE");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                }
+                            }
+                            while(s != "y" && s != "n");
+                            
+                            
                         }
                     }
                 }
@@ -630,6 +644,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
             }
             return decision3;
         }   
+    
+        static void policecall(string name, string something)
+        {
+            Console.ReadKey();
+        }
     }
 
 }
