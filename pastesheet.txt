@@ -1,0 +1,17 @@
+      
+      
+      Advantage attck for the new method:
+      
+        Console.WriteLine("Would you like to advantage attack the poor lad? (y/n)");
+                            string? s;
+                            do
+                            {
+                                s = Console.ReadLine();
+                                if (s != "y" && s != "n")
+                                {
+                                    Console.WriteLine("INVALID REPONSE");
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                }
+                            }
+                            while(s != "y" && s != "n");

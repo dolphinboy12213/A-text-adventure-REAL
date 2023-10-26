@@ -28,7 +28,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 name = Console.ReadLine();
                 if (name == null)
                 {
-                    Console.WriteLine("No");
+                    Console.WriteLine("No.");
                     Console.ReadKey();
                     Console.Clear();
                 } // name
@@ -38,11 +38,11 @@ namespace MyApp // Note: actual namespace depends on the project name.
             string? gender;
             do
             {
-                Console.Write(name + "'s gender? (m/f)");
+                Console.Write(name + "'s gender? (m/f): ");
                 gender = Console.ReadLine();
                 if (gender != "m" && gender != "f")
                 {
-                    Console.WriteLine("No");
+                    Console.WriteLine("INVALID RESPONSE");
                     Console.ReadKey();
                     Console.Clear();
                 } 
@@ -66,14 +66,14 @@ namespace MyApp // Note: actual namespace depends on the project name.
             int intelbonus = calc_modifier(chaIntel);
             int dexbonus = calc_modifier(chaDex);
 
-            int Maxhealth = calc_maxhealth(chaStrength, chaDex);
-            int currentHealth = Maxhealth;
+            int maxHealth = calc_maxhealth(chaStrength, chaDex);
+            int currentHealth = maxHealth;
             string clothes = "null";
 
             Console.WriteLine("\nYour strength is: " + chaStrength + "\nAnd your strength mod is: +" + strengthbonus); // display Ability scores and mods.
             Console.WriteLine("\nYour intelligence is: " + chaIntel + "\nAnd your intelligence mod is: +" + intelbonus);
             Console.WriteLine("\nYour dexterity is: " + chaDex + "\nAnd your dexterity mod is: +" + dexbonus);
-            Console.WriteLine("\nYour total health is: " + Maxhealth);
+            Console.WriteLine("\nYour total health is: " + maxHealth);
             Console.WriteLine("\nPress any key to Continue");
             Console.ReadKey();
 
@@ -84,8 +84,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.WriteLine("It seems to be another dull morning today. Something feels wrong in your head, but you push off your worries to the side. \n ");
 
             string? decision1 = decisionMethod1();
-            bool death1 = decisionConditional1(decision1);
-            if (death1 == true)
+            bool death0 = decisionConditional1(decision1);
+            if (death0 == true)
             {
                 return;
             }
@@ -94,7 +94,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             Console.Clear();
 
             string? decision2 = decisionMethod2(decision1);
-            Tuple<string, int, int, string[]> decision2CondTupleValues = decisionConditional2(decision2, clothes, intelbonus, currentHealth, Maxhealth, inventory_spaces, inventory);
+            Tuple<string, int, int, string[]> decision2CondTupleValues = decisionConditional2(decision2, clothes, intelbonus, currentHealth, maxHealth, inventory_spaces, inventory);
 
             (clothes, currentHealth, inventory_spaces, inventory) = (decision2CondTupleValues.Item1, decision2CondTupleValues.Item2, decision2CondTupleValues.Item3, decision2CondTupleValues.Item4);
             Console.Clear();
@@ -108,7 +108,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.Clear();
 
-            decisionConditional3(decision3, clothes, dexbonus, name ?? clothes);
+            decisionConditional3(decision3, clothes, dexbonus, name ?? clothes, currentHealth, maxHealth, inventory);
         }
         static void title_image()
         {
@@ -159,8 +159,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
         }
         static int calc_maxhealth(int strength, int dex)
         {
-            int Maxhealth = (int)Math.Round((strength * 1.5) + (dex * 1.2));
-            return Maxhealth;
+            int maxHealth = (int)Math.Round((strength * 1.5) + (dex * 1.2));
+            return maxHealth;
         }
         static string decisionMethod1()
         {
@@ -253,7 +253,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             return temp;
 
         }
-        static Tuple<string, int, int, string[]> decisionConditional2(string decision2, string clothes, int intelbonus, int currentHealth, int Maxhealth, int inventory_spaces, string[] inventory)
+        static Tuple<string, int, int, string[]> decisionConditional2(string decision2, string clothes, int intelbonus, int currentHealth, int maxHealth, int inventory_spaces, string[] inventory)
         {
             Random rnd = new Random();
             if (decision2 == "1")
@@ -295,7 +295,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         Console.WriteLine("\nAs you search the room, You accidentally slip on a perfectly placed banana peel.");
                         Console.WriteLine("\nTake twelve damage");
                         currentHealth = currentHealth - 12;
-                        Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
+                        Console.WriteLine("HP: " + currentHealth + "/" + maxHealth);
 
 
                     }
@@ -367,7 +367,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("\nAs you search the room, You accidentally slip on a perfectly placed banana peel.");
                     Console.WriteLine("\nTake twelve damage");
                     currentHealth = currentHealth - 12;
-                    Console.WriteLine("HP: " + currentHealth + "/" + Maxhealth);
+                    Console.WriteLine("HP: " + currentHealth + "/" + maxHealth);
 
 
                 }
@@ -480,8 +480,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
             while (decision3 != "1" && decision3 != "2");
             return decision3;
         }
-        static void decisionConditional3(string decision3, string clothes, int dexbonus, string name)
+        static void decisionConditional3(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
         {
+            
             if (decision3 == "1")
             {
                 string? inside_decision3_1;
@@ -497,7 +498,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     }
                 }
                 while (inside_decision3_1 != "1" && inside_decision3_1 != "2" && inside_decision3_1 != "3");
-                decisionConditional3path1(decision3, clothes, dexbonus, name);
+                decisionConditional3path1(decision3, clothes, dexbonus, name, currentHealth, maxHealth, inventory);
 
             }
             else if (decision3 == "2")
@@ -508,7 +509,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 
         }
-        static string decisionConditional3path1(string decision3, string clothes, int dexbonus, string name)
+        static string decisionConditional3path1(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
         {   
             Random rnd = new Random();
             if (decision3 == "1")
@@ -619,25 +620,22 @@ namespace MyApp // Note: actual namespace depends on the project name.
                                 policecall(name, s);
                             }
                         }
-                        else if (rollDexandBonus < 20 && rollDexandBonus <= 13)
+                        else if (rollDexandBonus <= 20 && rollDexandBonus >= 13)
                         {
+                                                   
                             Console.WriteLine("You successfully dodge the bandit, as he goes flying to the ground.\n");
-                            Console.WriteLine("Would you like to advantage attack the poor lad? (y/n)");
-                            string? s;
-                            do
-                            {
-                                s = Console.ReadLine();
-                                if (s != "y" && s != "n")
-                                {
-                                    Console.WriteLine("INVALID REPONSE");
-                                    Console.ReadKey();
-                                    Console.Clear();
-                                }
-                            }
-                            while(s != "y" && s != "n");
-                            
+                            bool advantage = true;
+                            burglarfight(currentHealth, maxHealth, inventory, advantage);
+ 
+                        }
+                        else if (rollDexandBonus <= 12 && rollDexandBonus >= 5)
+                        {
+                            Console.WriteLine("As he leaps past you, the man nicks you in the shoulder.\n");
+                            currentHealth = currentHealth - 6;
+                            Console.WriteLine(currentHealth + " / " + maxHealth);
                             
                         }
+                   
                     }
                 }
                 
@@ -648,6 +646,10 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static void policecall(string name, string something)
         {
             Console.ReadKey();
+        }
+        static void burglarfight(int currentHealth, int maxHealth0, string[] inventory, bool advantage)
+        {
+            
         }
     }
 

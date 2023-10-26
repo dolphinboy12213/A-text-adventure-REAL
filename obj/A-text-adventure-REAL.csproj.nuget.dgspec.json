@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj": {}
+    "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj": {
+    "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
+        "projectUniqueName": "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
         "projectName": "A-text-adventure-REAL",
-        "projectPath": "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
+        "projectPath": "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
         "packagesPath": "C:\\Users\\Naveenam\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\obj\\",
+        "outputPath": "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Naveenam\\AppData\\Roaming\\NuGet\\NuGet.Config"
