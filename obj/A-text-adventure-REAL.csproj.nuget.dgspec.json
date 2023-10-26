@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/workspaces/A-text-adventure-REAL/A-text-adventure-REAL.csproj": {}
+    "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj": {}
   },
   "projects": {
-    "/workspaces/A-text-adventure-REAL/A-text-adventure-REAL.csproj": {
+    "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/workspaces/A-text-adventure-REAL/A-text-adventure-REAL.csproj",
+        "projectUniqueName": "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
         "projectName": "A-text-adventure-REAL",
-        "projectPath": "/workspaces/A-text-adventure-REAL/A-text-adventure-REAL.csproj",
-        "packagesPath": "/home/codespace/.nuget/packages/",
-        "outputPath": "/workspaces/A-text-adventure-REAL/obj/",
+        "projectPath": "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
+        "packagesPath": "C:\\Users\\Naveenam\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Naveenam\\Documents\\Github\\A-text-adventure-REAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/codespace/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Naveenam\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/dotnet/7.0.306/sdk/7.0.306/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23463.5\\RuntimeIdentifierGraph.json"
         }
       }
     }
