@@ -512,10 +512,13 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static string decisionConditional3path1(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
         {   
             Random rnd = new Random();
+            bool advantage = true;
+            bool staggered = true;
+            int banditHealth = 13;
             if (decision3 == "1")
             {
                 string? inside_decision3_1_walk;
-                int banditHealth = 13;
+                
                 if (clothes == "null")
                 {
                     Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. As he sees you, he looks at your legs and faints.\n");
@@ -624,20 +627,42 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         {
                                                    
                             Console.WriteLine("You successfully dodge the bandit, as he goes flying to the ground.\n");
-                            bool advantage = true;
-                            burglarfight(currentHealth, maxHealth, inventory, advantage);
+                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
  
                         }
                         else if (rollDexandBonus <= 12 && rollDexandBonus >= 5)
                         {
                             Console.WriteLine("As he leaps past you, the man nicks you in the shoulder.\n");
                             currentHealth = currentHealth - 6;
-                            Console.WriteLine(currentHealth + " / " + maxHealth);
+                            Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
+                            advantage = false;
+                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
                             
+                        }
+                        else if (rollDexandBonus <= 4 && rollDex > 1)
+                        {
+                            Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
+                            currentHealth = currentHealth - 9;
+                            Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
+                            advantage = false;
+                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
+                        }
+                        else if (rollDex == 1)
+                        {
+                            Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
+                            currentHealth = currentHealth - 9;
+                            Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
+                            advantage = false;
+                            staggered = true;
+                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
                         }
                    
                     }
                 }
+                
+            }
+            else if (decision3 == "2")
+            {
                 
             }
             return decision3;
@@ -647,7 +672,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
             Console.ReadKey();
         }
-        static void burglarfight(int currentHealth, int maxHealth0, string[] inventory, bool advantage)
+        static void burglarfight(int currentHealth, int maxHealth0, string[] inventory, bool advantage, bool staggered)
         {
             
         }
