@@ -92,6 +92,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.ReadKey();
             Console.Clear();
+            
 
             string? decision2 = decisionMethod2(decision1);
             Tuple<string, int, int, string[]> decision2CondTupleValues = decisionConditional2(decision2, clothes, intelbonus, currentHealth, maxHealth, inventory_spaces, inventory);
