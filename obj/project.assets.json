@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Naveenam\\.nuget\\packages\\": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
+      "projectUniqueName": "/workspaces/A-text-adventure-REAL/A-text-adventure-REAL.csproj",
       "projectName": "A-text-adventure-REAL",
-      "projectPath": "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\A-text-adventure-REAL.csproj",
-      "packagesPath": "C:\\Users\\Naveenam\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Naveenam\\Documents\\GitHub\\A-text-adventure-REAL\\obj\\",
+      "projectPath": "/workspaces/A-text-adventure-REAL/A-text-adventure-REAL.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/A-text-adventure-REAL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Naveenam\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -59,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100-rc.1.23463.5\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/dotnet/7.0.404/sdk/7.0.404/RuntimeIdentifierGraph.json"
       }
     }
   }
