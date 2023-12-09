@@ -651,7 +651,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                         else if (rollDex == 1)
                         {
                             Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
-                            currentHealth = currentHealth - 9;
+                            currentHealth -= 14;
                             Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
                             advantage = false;
                             staggered = true;
