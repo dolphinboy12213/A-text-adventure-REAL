@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Runtime.CompilerServices;
+using System.Xml.Serialization;
 
 
 namespace MyApp // Note: actual namespace depends on the project name.
@@ -20,8 +22,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
             title_image();
 
             // figure out character stuff
-            
-            string? name; 
+
+            string? name;
             do
             {
                 Console.Write("Your Character's name: ");
@@ -33,8 +35,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.Clear();
                 } // name
             }
-            while(name == null);
-            
+            while (name == null);
+
             string? gender;
             do
             {
@@ -45,9 +47,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("INVALID RESPONSE");
                     Console.ReadKey();
                     Console.Clear();
-                } 
+                }
             }
-            while(gender != "m" && gender != "f");
+            while (gender != "m" && gender != "f");
 
 
             Console.WriteLine("\nTap to roll for " + name + "'s stats \n");
@@ -92,7 +94,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
             Console.ReadKey();
             Console.Clear();
-            
+
 
             string? decision2 = decisionMethod2(decision1);
             Tuple<string, int, int, string[]> decision2CondTupleValues = decisionConditional2(decision2, clothes, intelbonus, currentHealth, maxHealth, inventory_spaces, inventory);
@@ -483,180 +485,179 @@ namespace MyApp // Note: actual namespace depends on the project name.
         }
         static void decisionConditional3(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
         {
-            
+
             if (decision3 == "1")
             {
-                decisionConditionalLivingRoom(decision3, clothes, dexbonus, name, currentHealth, maxHealth, inventory);
+                decisionConditionalLivingRoom(clothes, dexbonus, name, currentHealth, maxHealth, inventory);
             }
             else if (decision3 == "2")
             {
-
+                decisionConditionalLaundryRoom();
             }
         }
-        static string decisionConditionalLivingRoom(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
-        {   
+        static string decisionConditionalLivingRoom(string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
+        {
             Random rnd = new Random();
             bool advantage = true;
             bool staggered = true;
             int banditHealth = 13;
-            if (decision3 == "1")
+            string? inside_decision3_1;
+
+            if (clothes == "null")
             {
-                string? inside_decision3_1;
-                
-                if (clothes == "null")
+                Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. As he sees you, he looks at your legs and faints.\n");
+                Console.WriteLine("Now your confused. You look down at your own legs and realize that your naked!");
+                Console.WriteLine("Get dressed now? (y/n)");
+                string? i;
+
+                do
                 {
-                    Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. As he sees you, he looks at your legs and faints.\n");
-                    Console.WriteLine("Now your confused. You look down at your own legs and realize that your naked!");
-                    Console.WriteLine("Get dressed now? (y/n)");
-                    string? i;
-
-                    do
+                    i = Console.ReadLine();
+                    if (i != "y" && i != "n")
                     {
-                        i = Console.ReadLine();
-                        if (i != "y" && i != "n")
-                        {
-                            Console.WriteLine("INVALID RESPONSE");
-                            Console.ReadKey();
-                            Console.Clear();
-                        }
-                    }
-                    while (i != "y" && i != "n");
-
-                    if (i == "y")
-                    {
-                        Console.WriteLine("You walk back to your closet and get dressed.");
-                        clothes = "Common Clothes";
+                        Console.WriteLine("INVALID RESPONSE"); // response check
                         Console.ReadKey();
-                        return clothes;
+                        Console.Clear();
                     }
-                    else if (i == "n")
-                    {
-                        Console.WriteLine("You choose to flex your thighs and stay nude, as you are him.");
-                        Console.ReadKey();
-                    }
-                    Console.Clear();
                 }
+                while (i != "y" && i != "n");
 
-                else
+                if (i == "y")
                 {
-                    Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. \n");
-                    Console.WriteLine("1. Talk to him. 2. Fight him. \n");
+                    Console.WriteLine("You walk back to your closet and get dressed.");   //vget dressed
+                    clothes = "Common Clothes";
+                    Console.ReadKey();
+                    return clothes;
+                }
+                else if (i == "n")
+                {
+                    Console.WriteLine("You choose to flex your thighs and stay nude, as you are him."); //cstay nude
+                    Console.ReadKey();
+                }
+                Console.Clear();
+            }
+
+            else //fight
+            {
+                Console.WriteLine("As you casually strut into the room, you see a shocked figure in a burglar outfit, holding a huge duffel bag. \n");
+                Console.WriteLine("1. Talk to him. 2. Fight him. \n");
+                do
+                {
+                    inside_decision3_1 = Console.ReadLine();
+                    if (inside_decision3_1 != "1" && inside_decision3_1 != "2")
+                    {
+                        Console.WriteLine("INVALID RESPONSE");
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                }
+                while (inside_decision3_1 != "1" && inside_decision3_1 != "2");
+                Console.Clear();
+                if (inside_decision3_1 == "1")
+                {
+                    string? inside_decision3_1_dialogue;
                     do
                     {
-                        inside_decision3_1 = Console.ReadLine();
-                        if (inside_decision3_1 != "1" && inside_decision3_1 != "2")
+                        Console.WriteLine("1. 'Who are you?' 2. 'Get out now!' 3. 'Freeze! THE POLICE ARE ON THE WAY!'");
+                        inside_decision3_1_dialogue = Console.ReadLine();
+                        if (inside_decision3_1_dialogue != "1" && inside_decision3_1_dialogue != "2" && inside_decision3_1_dialogue != "3")
                         {
                             Console.WriteLine("INVALID RESPONSE");
                             Console.ReadKey();
                             Console.Clear();
                         }
                     }
-                    while (inside_decision3_1 != "1" && inside_decision3_1 != "2");
+                    while (inside_decision3_1_dialogue != "1" && inside_decision3_1_dialogue != "2" && inside_decision3_1_dialogue != "3");
                     Console.Clear();
-                    if (inside_decision3_1 == "1")
+
+                    Console.WriteLine("He looks you dead in the eye for a couple seconds, and then pulls a knife out of his bag and launches himself at you.\n");
+                    Console.WriteLine("Press any key to dodge (dex)\n");
+                    Console.ReadKey();
+                    int rollDex = rnd.Next(1, 21);
+                    int rollDexandBonus = rollDex + dexbonus;
+                    Console.WriteLine("You rolled a total of: " + rollDexandBonus + " (" + rollDex + " + " + dexbonus + ")");
+                    Console.ReadKey();
+                    Console.Clear();
+                    if (rollDex == 20 && rollDexandBonus >= 20)
                     {
-                        string? inside_decision3_1_dialogue;
+                        Console.WriteLine("You completely dodge the bandit, as he ends up shoving his head into the drywall");
+                        banditHealth = banditHealth - 5;
+                        Console.ReadKey();
+                        Console.Clear();
+                        Console.WriteLine("You here the muffled screams of the stuck bandit.\n");
+                        Console.WriteLine("1. Call the police  2. Attack the stuck bandit.");
+                        string? s;
                         do
                         {
-                            Console.WriteLine("1. 'Who are you?' 2. 'Get out now!' 3. 'Freeze! THE POLICE ARE ON THE WAY!'");
-                            inside_decision3_1_dialogue = Console.ReadLine();
-                            if (inside_decision3_1_dialogue != "1" && inside_decision3_1_dialogue != "2" && inside_decision3_1_dialogue != "3")
+                            s = Console.ReadLine();
+                            if (s != "1" && s != "2")
                             {
                                 Console.WriteLine("INVALID RESPONSE");
                                 Console.ReadKey();
                                 Console.Clear();
                             }
+                            Console.Clear();
                         }
-                        while(inside_decision3_1_dialogue != "1" && inside_decision3_1_dialogue != "2" && inside_decision3_1_dialogue != "3");
-                        Console.Clear();
-
-                        Console.WriteLine("He looks you dead in the eye for a couple seconds, and then pulls a knife out of his bag and launches himself at you.\n");
-                        Console.WriteLine("Press any key to dodge (dex)\n");
-                        Console.ReadKey();
-                        int rollDex = rnd.Next(1, 21);
-                        int rollDexandBonus = rollDex + dexbonus;
-                        Console.WriteLine("You rolled a total of: " + rollDexandBonus + " (" + rollDex + " + " + dexbonus + ")");
-                        Console.ReadKey();
-                        Console.Clear();
-                        if (rollDex == 20 && rollDexandBonus >= 20)
+                        while (s != "1" && s != "2");
+                        if (s == "1")
                         {
-                            Console.WriteLine("You completely dodge the bandit, as he ends up shoving his head into the drywall");
-                            banditHealth = banditHealth - 5;
+                            Console.WriteLine(name + "grabs their cell phone and tries to call 911");
                             Console.ReadKey();
                             Console.Clear();
-                            Console.WriteLine("You here the muffled screams of the stuck bandit.\n");
-                            Console.WriteLine("1. Call the police  2. Attack the stuck bandit.");
-                            string? s;
-                            do 
-                            {
-                                s = Console.ReadLine();
-                                if (s != "1" && s != "2")
-                                {
-                                    Console.WriteLine("INVALID RESPONSE");
-                                    Console.ReadKey();
-                                    Console.Clear();
-                                }
-                                Console.Clear();
-                            }
-                            while(s != "1" && s != "2");
-                            if (s == "1")
-                            {
-                                Console.WriteLine(name + "grabs their cell phone and tries to call 911");
-                                Console.ReadKey();
-                                Console.Clear();
-                                policecall(name, s);
-                            }
+                            policecall(name, s);
                         }
-                        else if (rollDexandBonus <= 20 && rollDexandBonus >= 13)
-                        {
-                                                   
-                            Console.WriteLine("You successfully dodge the bandit, as he goes flying to the ground.\n");
-                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
- 
-                        }
-                        else if (rollDexandBonus <= 12 && rollDexandBonus >= 5)
-                        {
-                            Console.WriteLine("As he leaps past you, the man nicks you in the shoulder.\n");
-                            currentHealth = currentHealth - 6;
-                            Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
-                            advantage = false;
-                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
-                            
-                        }
-                        else if (rollDexandBonus <= 4 && rollDex > 1)
-                        {
-                            Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
-                            currentHealth = currentHealth - 9;
-                            Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
-                            advantage = false;
-                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
-                        }
-                        else if (rollDex == 1)
-                        {
-                            Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
-                            currentHealth -= 14;
-                            Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
-                            advantage = false;
-                            staggered = true;
-                            burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
-                        }
-                   
                     }
+                    else if (rollDexandBonus <= 20 && rollDexandBonus >= 13)
+                    {
+
+                        Console.WriteLine("You successfully dodge the bandit, as he goes flying to the ground.\n");
+                        burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
+
+                    }
+                    else if (rollDexandBonus <= 12 && rollDexandBonus >= 5)
+                    {
+                        Console.WriteLine("As he leaps past you, the man nicks you in the shoulder.\n");
+                        currentHealth = currentHealth - 6;
+                        Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
+                        advantage = false;
+                        burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
+
+                    }
+                    else if (rollDexandBonus <= 4 && rollDex > 1)
+                    {
+                        Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
+                        currentHealth = currentHealth - 9;
+                        Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
+                        advantage = false;
+                        burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
+                    }
+                    else if (rollDex == 1)
+                    {
+                        Console.WriteLine("The burglar shanks your stomach, and causes excruciating pain");
+                        currentHealth -= 14;
+                        Console.WriteLine("HP: " + currentHealth + " / " + maxHealth);
+                        advantage = false;
+                        staggered = true;
+                        burglarfight(currentHealth, maxHealth, inventory, advantage, staggered);
+                    }
+
                 }
-                
             }
-            else if (decision3 == "2")
-            {
-                
-            }
-            return decision3;
-        }   
-    
+            return "null";
+        }
+
+        static void decisionConditionalLaundryRoom()
+        {
+            // find key
+        }
         static void policecall(string name, string something)
         {
             Console.ReadKey();
             Console.WriteLine("911, what's your emergency?");
+            Console.ReadKey();
             Console.WriteLine(name + ": Hey uh I found this burglar in my house, \n so I kind of beat the shit out of him.");
+            Console.ReadKey();
+            Console.WriteLine("Umm... I'll send some officers to your apartment, just hang in there, ok?");
         }
         static void burglarfight(int currentHealth, int maxHealth0, string[] inventory, bool advantage, bool staggered)
         {
