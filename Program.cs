@@ -492,9 +492,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
             {
 
             }
-
-
-
         }
         static string decisionConditionalLivingRoom(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
         {   
@@ -504,7 +501,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             int banditHealth = 13;
             if (decision3 == "1")
             {
-                string? inside_decision3_1_walk;
+                string? inside_decision3_1;
                 
                 if (clothes == "null")
                 {
@@ -546,31 +543,31 @@ namespace MyApp // Note: actual namespace depends on the project name.
                     Console.WriteLine("1. Talk to him. 2. Fight him. \n");
                     do
                     {
-                        inside_decision3_1_walk = Console.ReadLine();
-                        if (inside_decision3_1_walk != "1" && inside_decision3_1_walk != "2")
+                        inside_decision3_1 = Console.ReadLine();
+                        if (inside_decision3_1 != "1" && inside_decision3_1 != "2")
                         {
                             Console.WriteLine("INVALID RESPONSE");
                             Console.ReadKey();
                             Console.Clear();
                         }
                     }
-                    while (inside_decision3_1_walk != "1" && inside_decision3_1_walk != "2");
+                    while (inside_decision3_1 != "1" && inside_decision3_1 != "2");
                     Console.Clear();
-                    if (inside_decision3_1_walk == "1")
+                    if (inside_decision3_1 == "1")
                     {
-                        string? inside_decision3_1_walk_dialogue;
+                        string? inside_decision3_1_dialogue;
                         do
                         {
                             Console.WriteLine("1. 'Who are you?' 2. 'Get out now!' 3. 'Freeze! THE POLICE ARE ON THE WAY!'");
-                            inside_decision3_1_walk_dialogue = Console.ReadLine();
-                            if (inside_decision3_1_walk_dialogue != "1" && inside_decision3_1_walk_dialogue != "2" && inside_decision3_1_walk_dialogue != "3")
+                            inside_decision3_1_dialogue = Console.ReadLine();
+                            if (inside_decision3_1_dialogue != "1" && inside_decision3_1_dialogue != "2" && inside_decision3_1_dialogue != "3")
                             {
                                 Console.WriteLine("INVALID RESPONSE");
                                 Console.ReadKey();
                                 Console.Clear();
                             }
                         }
-                        while(inside_decision3_1_walk_dialogue != "1" && inside_decision3_1_walk_dialogue != "2" && inside_decision3_1_walk_dialogue != "3");
+                        while(inside_decision3_1_dialogue != "1" && inside_decision3_1_dialogue != "2" && inside_decision3_1_dialogue != "3");
                         Console.Clear();
 
                         Console.WriteLine("He looks you dead in the eye for a couple seconds, and then pulls a knife out of his bag and launches himself at you.\n");
