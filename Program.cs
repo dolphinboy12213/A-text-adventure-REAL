@@ -486,21 +486,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             
             if (decision3 == "1")
             {
-                string? inside_decision3_1;
-                do
-                {
-                    Console.WriteLine("1. Walk  2. Run  3. Stealth");
-                    inside_decision3_1 = Console.ReadLine();
-                    if (inside_decision3_1 != "1" && inside_decision3_1 != "2" && inside_decision3_1 != "3")
-                    {
-                        Console.WriteLine("INVALID RESPONSE");
-                        Console.ReadKey();
-                        Console.Clear();
-                    }
-                }
-                while (inside_decision3_1 != "1" && inside_decision3_1 != "2" && inside_decision3_1 != "3");
-                decisionConditional3path1(decision3, clothes, dexbonus, name, currentHealth, maxHealth, inventory);
-
+                decisionConditionalLivingRoom(decision3, clothes, dexbonus, name, currentHealth, maxHealth, inventory);
             }
             else if (decision3 == "2")
             {
@@ -510,7 +496,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
 
 
         }
-        static string decisionConditional3path1(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
+        static string decisionConditionalLivingRoom(string decision3, string clothes, int dexbonus, string name, int currentHealth, int maxHealth, string[] inventory)
         {   
             Random rnd = new Random();
             bool advantage = true;
