@@ -672,6 +672,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static void policecall(string name, string something)
         {
             Console.ReadKey();
+            Console.WriteLine("911, what's your emergency?");
+            Console.WriteLine(name + ": Hey uh I found this burglar in my house, \n so I kind of beat the shit out of him.");
         }
         static void burglarfight(int currentHealth, int maxHealth0, string[] inventory, bool advantage, bool staggered)
         {
